@@ -21,8 +21,7 @@ import com.spotify.scio.testing.ApproxPipelineSpec
 
 class ZetasketchHllIntCounterTest extends ApproxPipelineSpec {
 
-//  "ZetasketchHLL++" should "estimate int distinct count" in {
-  ignore should "estimate int distinct count" in {
+  "ZetasketchHLL++" should "estimate int distinct count" in {
     val estimator = ZetasketchHllIntCounter()
     val input = for (i <- 0 to 1000000) yield (i % 20)
     val output = runWithData(input) { scl =>
@@ -32,7 +31,7 @@ class ZetasketchHllIntCounterTest extends ApproxPipelineSpec {
     checkWithErrorRate(output, Seq(20L), 0.6d)
   }
 
-  ignore should "estimate strings distinct count" in {
+  it should "estimate strings distinct count" in {
     val estimator = ZetasketchHllStringCounter()
     val input = for (i <- 0 to 1000000) yield s"${i % 20}_"
     val output = runWithData(input) { scl =>
@@ -42,7 +41,7 @@ class ZetasketchHllIntCounterTest extends ApproxPipelineSpec {
     checkWithErrorRate(output, Seq(20L), 0.6d)
   }
 
-  ignore should "estimate longs distinct count" in {
+  it should "estimate longs distinct count" in {
     val estimator = ZetasketchHllLongCounter()
     val input = for (i <- 0 to 1000000) yield ((i % 20).toLong)
     val output = runWithData(input) { scl =>
@@ -52,7 +51,7 @@ class ZetasketchHllIntCounterTest extends ApproxPipelineSpec {
     checkWithErrorRate(output, Seq(20L), 0.6d)
   }
 
-  ignore should "estimate byte array distinct count" in {
+  it should "estimate byte array distinct count" in {
     val estimator = ZetasketchHllByteArrayCounter()
     val input = for (i <- 0 to 1000000) yield (s"${i % 20}_".getBytes)
     val output = runWithData(input) { scl =>
