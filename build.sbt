@@ -542,6 +542,11 @@ lazy val `scio-test`: Project = project
     Test / testGrouping := splitTests(
       (Test / definedTests).value,
       List("com.spotify.scio.ArgsTest")
+    ),
+    javaOptions in Test ++= Seq(
+      "-Xms1G",
+      "-XX:+CMSClassUnloadingEnabled",
+      "-XX:+UseConcMarkSweepGC"
     )
   )
   .configs(
