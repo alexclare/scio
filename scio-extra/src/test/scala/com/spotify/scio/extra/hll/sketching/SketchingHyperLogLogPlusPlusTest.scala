@@ -21,8 +21,7 @@ import com.spotify.scio.testing.ApproxPipelineSpec
 
 class SketchingHyperLogLogPlusPlusTest extends ApproxPipelineSpec {
 
-//  "SketchHLL++" should "estimate distinct count" in {
-  ignore should "estimate distinct count" in {
+  "SketchHLL++" should "estimate distinct count" in {
     val input = for (i <- 1 to 1000000) yield (i % 20)
     val out = runWithData(input) { scl =>
       scl
@@ -32,7 +31,7 @@ class SketchingHyperLogLogPlusPlusTest extends ApproxPipelineSpec {
     checkWithErrorRate(out, Seq(20L), 0.5d)
   }
 
-  ignore should "estimate distinct count per key" in {
+  it should "estimate distinct count per key" in {
 
     val upperLimit = 1000000
     val in = 0 to upperLimit
