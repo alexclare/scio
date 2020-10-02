@@ -5,10 +5,11 @@
 -Xmx8G
 -XX:ReservedCodeCacheSize=512m
 -XX:+TieredCompilation
--XX:+UseParallelGC
+# -XX:+UseParallelGC
 
 # https://github.com/spotify/scio/issues/2096
 # https://github.com/sbt/sbt/issues/4794#issuecomment-500602546
 -Dsbt.classloader.close=false
 
 -XX:+CMSClassUnloadingEnabled
+-XX:+UseConcMarkSweepGC
