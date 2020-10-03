@@ -61,7 +61,7 @@ class ZetasketchHllIntCounterTest extends ApproxPipelineSpec {
     checkWithErrorRate(output, Seq(20L), 0.6d)
   }
 
-  ignore should "estimate distinct count per key" in {
+  it should "estimate distinct count per key" in {
     val estimator = ZetasketchHllIntCounter()
     val upperLimit = 10000
     val in = 0 to upperLimit
